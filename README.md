@@ -1,10 +1,10 @@
 # Dreamcatcher Website
 
-this is my first official project with my full effort, I'm very passion on this project. Build from scratch, searching the inspiration, concept, etc.
+This is my first official project, and I've poured my heart and soul into it. I'm incredibly passionate about this project, building it from scratch, searching for inspiration, concepts, and everything in between.
 
-For the tech stack I'm using:
+Here's the tech stack I used:
 - React + Vite
 - TailwindCSS
-- Fonts Google
+- Google Fonts
 
-so enjoy in this website, but the website not publish yet, so stay tune ✌️✌️
+I hope you'll enjoy this website when it's launched! It's not published yet, so stay tuned! ✌️✌️
