@@ -1,8 +1,10 @@
-# React + Vite
+# Dreamcatcher Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+this is my first official project with my full effort, I'm very passion on this project. Build from scratch, searching the inspiration, concept, etc.
 
-Currently, two official plugins are available:
+For the tech stack I'm using:
+- React + Vite
+- TailwindCSS
+- Fonts Google
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+so enjoy in this website, but the website not publish yet, so stay tune ✌️✌️
