@@ -1,28 +1,33 @@
 import playIcon from "../assets/icons/circled-play.png";
 import videoHero from "../assets/video/hero-video.mp4";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import { listMenu } from "../constant";
+
+import { useState } from "react";
 
 const Home = () => {
+  // Hook Menu
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen((prevState) => !prevState);
+  };
+
   return (
     <section className="bg-primary text-white h-screen">
-      <header className="container py-7 relative z-10">
-        <nav className="flex justify-between">
-          <div>
-            <a
-              href="/"
-              className="font-semibold text-base md:text-lg xl:text-xl leading-4"
-            >
-              Dreamcatcher
-            </a>
-          </div>
-          <div>
-            <button className="font-semibold text-sm lg:text-base">Menu</button>
-          </div>
-        </nav>
-      </header>
+      <Header toggleMenu={toggleMenu} isOpen={isOpen} />
       {/* BG Image */}
       {/* <div className="absolute inset-0 bg-hero-banner bg-contain lg:bg-cover bg-no-repeat bg-center opacity-30 grayscale"></div> */}
+      {/* BG Video */}
       <div className="absolute inset-0 grayscale">
-        <video src={videoHero} autoPlay muted loop className="w-full h-full object-cover" />
+        <video
+          src={videoHero}
+          autoPlay
+          muted
+          loop
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 w-full h-full bg-primary opacity-60"></div>
       </div>
       {/* Content */}
@@ -62,30 +67,25 @@ const Home = () => {
         </div>
       </div>
       {/* Footer */}
-      <div className="absolute bottom-8 md:bottom-10 lg:bottom-5 container">
-        <div className="flex justify-between items-end flex-row-reverse md:flex-row">
-          <div className="hidden md:block">
-            <p className="text-sm">
-              &copy; 2024 Dreamcatcher Company. All Rights Reserved
-            </p>
-          </div>
-          <div className="md:hidden xl:block">
-            <p className="text-accent text-md xl:text-5xl xl:font-bold">
-              &copy;2024
-            </p>
-          </div>
-          <div className="w-2/3 md:w-1/3">
-            <p className="text-sm font-semibold leading-5">
-              In Dreamcatcher's story and lore, each member represent a
-              different nightmare or fear. Diokophobia, Merinthophobia,
-              Claustrophobia, Scopophobia, Mazeophobia, Agliophobia, Basophobia
-            </p>
-          </div>
-        </div>
-      </div>
+      <Footer />
 
       {/* List Menu */}
-
+      {isOpen && (
+        <div className="absolute inset-0 bg-primary">
+          <ul className="w-full h-full uppercase font-bold text-3xl flex flex-col justify-center items-center gap-1">
+            {listMenu.map((item) => (
+              <li key={item.id} className="group ">
+                <a
+                  href={item.link}
+                  className="group-hover:text-accent primary-transition"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </section>
   );
 };
