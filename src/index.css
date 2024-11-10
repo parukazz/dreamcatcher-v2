@@ -5,3 +5,7 @@
 * {
   @apply font-main;
 }
+
+.primary-transition {
+  @apply transition duration-300 ease-in-out;
+}
