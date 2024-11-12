@@ -10,19 +10,15 @@ const Home = () => {
   // Hook Menu
   const [isOpen, setIsOpen] = useState(true);
 
-<<<<<<< HEAD
   // Ref untuk menu
   const menuRef = useRef(null);
   const menuItemRef = useRef([]);
 
   // Toggle Menu Handler
-=======
->>>>>>> parent of a3c1b08 (add GSAP motion)
   const toggleMenu = () => {
     setIsOpen((prevState) => !prevState);
   };
 
-<<<<<<< HEAD
   useEffect(() => {
     if (isOpen) {
       gsap.fromTo(
@@ -65,10 +61,6 @@ const Home = () => {
     <section className="bg-primary text-white h-screen">
       {" "}
       {/* class overflow-hidden itu ditambah ketika menggunakan GSAP */}
-=======
-  return (
-    <section className="bg-primary text-white h-screen">
->>>>>>> parent of a3c1b08 (add GSAP motion)
       <Header toggleMenu={toggleMenu} isOpen={isOpen} />
       {/* BG Image */}
       {/* <div className="absolute inset-0 bg-hero-banner bg-contain lg:bg-cover bg-no-repeat bg-center opacity-30 grayscale"></div> */}
