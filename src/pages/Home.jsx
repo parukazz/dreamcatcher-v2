@@ -10,10 +10,11 @@ import { useEffect, useRef, useState } from "react";
 
 const Home = () => {
   // Hook Menu
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   // Ref untuk menu
   const menuRef = useRef(null);
+  const menuItemRef = useRef([]);
 
   // Toggle Menu Handler
   const toggleMenu = () => {
@@ -31,6 +32,22 @@ const Home = () => {
           height: "100%",
           duration: 2,
           ease: "power1.inOut",
+          onComplete: () => {
+            gsap.fromTo(
+              menuItemRef.current,
+              {
+                opacity: 0,
+                y: -20,
+              },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.3,
+                stagger: 0.1,
+                ease: "power2.inOut",
+              }
+            );
+          },
         }
       );
     } else {
@@ -43,7 +60,7 @@ const Home = () => {
   }, [isOpen]);
 
   return (
-    <section className="bg-primary text-white h-screen overflow-hidden">
+    <section className="bg-primary text-white h-screen">
       {" "}
       {/* class overflow-hidden itu ditambah ketika menggunakan GSAP */}
       <Header toggleMenu={toggleMenu} isOpen={isOpen} />
@@ -101,14 +118,17 @@ const Home = () => {
       {/* List Menu */}
       <div
         ref={menuRef}
-        id="menu-animate"
         className="absolute inset-0 bg-primary overflow-hidden"
       >
         {" "}
         {/* class overflow-hidden itu ditambah ketika menggunakan GSAP */}
         <ul className="w-full h-full uppercase font-bold text-3xl flex flex-col justify-center items-center gap-1">
-          {listMenu.map((item) => (
-            <li key={item.id} className="group ">
+          {listMenu.map((item, index) => (
+            <li
+              key={item.id}
+              ref={(el) => (menuItemRef.current[index] = el)}
+              className="group"
+            >
               <a
                 href={item.link}
                 className="group-hover:text-accent primary-transition"
