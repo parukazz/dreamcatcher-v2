@@ -8,7 +8,7 @@ import { useState } from "react";
 
 const Home = () => {
   // Hook Menu
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   // Toggle Menu Handler
   const toggleMenu = () => {
