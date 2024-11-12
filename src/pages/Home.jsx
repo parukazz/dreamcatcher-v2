@@ -4,6 +4,8 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { listMenu } from "../constant";
 
+import { useState } from "react";
+
 const Home = () => {
   // Hook Menu
   const [isOpen, setIsOpen] = useState(true);
@@ -67,27 +69,8 @@ const Home = () => {
       </div>
       {/* Footer */}
       <Footer />
+
       {/* List Menu */}
-      <div id="menu-animate" className="absolute inset-0 bg-primary">
-        {" "}
-        {/* class overflow-hidden itu ditambah ketika menggunakan GSAP */}
-        <ul className="w-full h-full uppercase font-bold text-3xl flex flex-col justify-center items-center gap-1">
-          {listMenu.map((item, index) => (
-            <li
-              key={item.id}
-              ref={(el) => (menuItemRef.current[index] = el)}
-              className="group"
-            >
-              <a
-                href={item.link}
-                className="group-hover:text-accent primary-transition"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
       {isOpen && (
         <div className="absolute inset-0 bg-primary">
           <ul className="w-full h-full uppercase font-bold text-3xl flex flex-col justify-center items-center gap-1">
