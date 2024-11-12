@@ -4,63 +4,17 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { listMenu } from "../constant";
 
-import { useState } from "react";
-
 const Home = () => {
   // Hook Menu
   const [isOpen, setIsOpen] = useState(true);
-
-  // Ref untuk menu
-  const menuRef = useRef(null);
-  const menuItemRef = useRef([]);
 
   // Toggle Menu Handler
   const toggleMenu = () => {
     setIsOpen((prevState) => !prevState);
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      gsap.fromTo(
-        menuRef.current,
-        {
-          height: 0,
-        },
-        {
-          height: "100%",
-          duration: 2,
-          ease: "power1.inOut",
-          onComplete: () => {
-            gsap.fromTo(
-              menuItemRef.current,
-              {
-                opacity: 0,
-                y: -20,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                duration: 0.3,
-                stagger: 0.1,
-                ease: "power2.inOut",
-              }
-            );
-          },
-        }
-      );
-    } else {
-      gsap.to(menuRef.current, {
-        height: 0,
-        duration: 2,
-        ease: "power1.inOut",
-      });
-    }
-  }, [isOpen]);
-
   return (
     <section className="bg-primary text-white h-screen">
-      {" "}
-      {/* class overflow-hidden itu ditambah ketika menggunakan GSAP */}
       <Header toggleMenu={toggleMenu} isOpen={isOpen} />
       {/* BG Image */}
       {/* <div className="absolute inset-0 bg-hero-banner bg-contain lg:bg-cover bg-no-repeat bg-center opacity-30 grayscale"></div> */}
@@ -113,13 +67,8 @@ const Home = () => {
       </div>
       {/* Footer */}
       <Footer />
-
       {/* List Menu */}
-<<<<<<< HEAD
-      <div
-        ref={menuRef}
-        className="absolute inset-0 bg-primary overflow-hidden"
-      >
+      <div id="menu-animate" className="absolute inset-0 bg-primary">
         {" "}
         {/* class overflow-hidden itu ditambah ketika menggunakan GSAP */}
         <ul className="w-full h-full uppercase font-bold text-3xl flex flex-col justify-center items-center gap-1">
@@ -139,7 +88,6 @@ const Home = () => {
           ))}
         </ul>
       </div>
-=======
       {isOpen && (
         <div className="absolute inset-0 bg-primary">
           <ul className="w-full h-full uppercase font-bold text-3xl flex flex-col justify-center items-center gap-1">
@@ -156,7 +104,6 @@ const Home = () => {
           </ul>
         </div>
       )}
->>>>>>> parent of a3c1b08 (add GSAP motion)
     </section>
   );
 };
