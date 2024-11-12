@@ -1,21 +1,51 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import playIcon from "../assets/icons/circled-play.png";
 import videoHero from "../assets/video/hero-video.mp4";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { listMenu } from "../constant";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Home = () => {
   // Hook Menu
   const [isOpen, setIsOpen] = useState(false);
 
+  // Ref untuk menu
+  const menuRef = useRef(null);
+
+  // Toggle Menu Handler
   const toggleMenu = () => {
     setIsOpen((prevState) => !prevState);
   };
 
+  useEffect(() => {
+    if (isOpen) {
+      gsap.fromTo(
+        menuRef.current,
+        {
+          height: 0,
+        },
+        {
+          height: "100%",
+          duration: 2,
+          ease: "power1.inOut",
+        }
+      );
+    } else {
+      gsap.to(menuRef.current, {
+        height: 0,
+        duration: 2,
+        ease: "power1.inOut",
+      });
+    }
+  }, [isOpen]);
+
   return (
-    <section className="bg-primary text-white h-screen">
+    <section className="bg-primary text-white h-screen overflow-hidden">
+      {" "}
+      {/* class overflow-hidden itu ditambah ketika menggunakan GSAP */}
       <Header toggleMenu={toggleMenu} isOpen={isOpen} />
       {/* BG Image */}
       {/* <div className="absolute inset-0 bg-hero-banner bg-contain lg:bg-cover bg-no-repeat bg-center opacity-30 grayscale"></div> */}
@@ -39,26 +69,26 @@ const Home = () => {
             <p>me</p>
           </div>
           <div>
-            <h1 className="uppercase text-[2.75rem] md:text-[5.45rem] lg:text-[7rem] xl:text-[10rem] 2xl:text-[11.875rem] font-bold text-center">
+            <h1 className="uppercase text-[2.25rem] md:text-[5.45rem] lg:text-[7rem] xl:text-[10rem] 2xl:text-[11.875rem] font-bold text-center">
               dreamcatcher
             </h1>
           </div>
-          <div className="flex justify-center gap-10 xl:gap-16 items-center mt-3 xl:mt-0 2xl:-mt-5">
+          <div className="flex justify-center gap-8 xl:gap-16 items-center mt-3 xl:mt-0 2xl:-mt-5">
             <div>
               <a
                 href="#"
-                className="flex items-center uppercase text-base md:text-2xl xl:text-4xl font-medium tracking-tight gap-2.5"
+                className="flex items-center uppercase text-sm md:text-2xl xl:text-4xl font-medium tracking-tight gap-2"
               >
                 <img
                   src={playIcon}
                   alt="icon play"
-                  className="w-10 md:w-16 xl:w-20"
+                  className="w-9 md:w-16 xl:w-20"
                 />
                 justice
               </a>
             </div>
             <div className="flex items-end gap-4">
-              <p className="text-accent text-3xl md:text-5xl xl:text-6xl font-bold">
+              <p className="text-accent text-2xl md:text-5xl xl:text-6xl font-bold">
                 VirtuouS
               </p>
               <p className="text-xs md:text-base mb-[5px]">10th Mini Album</p>
@@ -68,24 +98,27 @@ const Home = () => {
       </div>
       {/* Footer */}
       <Footer />
-
       {/* List Menu */}
-      {isOpen && (
-        <div className="absolute inset-0 bg-primary">
-          <ul className="w-full h-full uppercase font-bold text-3xl flex flex-col justify-center items-center gap-1">
-            {listMenu.map((item) => (
-              <li key={item.id} className="group ">
-                <a
-                  href={item.link}
-                  className="group-hover:text-accent primary-transition"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div
+        ref={menuRef}
+        id="menu-animate"
+        className="absolute inset-0 bg-primary overflow-hidden"
+      >
+        {" "}
+        {/* class overflow-hidden itu ditambah ketika menggunakan GSAP */}
+        <ul className="w-full h-full uppercase font-bold text-3xl flex flex-col justify-center items-center gap-1">
+          {listMenu.map((item) => (
+            <li key={item.id} className="group ">
+              <a
+                href={item.link}
+                className="group-hover:text-accent primary-transition"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 };
