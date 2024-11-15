@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { listMenu } from "../constant";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -38,17 +38,21 @@ const Home = () => {
       opacity: 0,
       duration: 1,
       ease: "power2.inOut",
-      onComplete: () => {  // Fungsi yang dijalankan setelah animasi #navbar selesai
-        gsap.fromTo("#heading", { 
-          x: "-100", 
-          opacity: 0 
-        }, { 
-          x: "0", 
-          opacity: 1, 
-          duration: 1.5, 
-          ease: "power2.out" 
-        });
-      }
+      onComplete: () => {
+        gsap.fromTo(
+          "#heading",
+          {
+            x: "-100",
+            opacity: 0,
+          },
+          {
+            x: "0",
+            opacity: 1,
+            duration: 1.5,
+            ease: "power2.out",
+          }
+        );
+      },
     });
   }, []);
 
