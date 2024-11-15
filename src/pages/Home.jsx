@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { listMenu } from "../constant";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -32,6 +32,35 @@ const Home = () => {
     }
   }, [isOpen]);
 
+  useGSAP(() => {
+    gsap.from("#navbar", {
+      y: "-100%",
+      opacity: 0,
+      duration: 1,
+      ease: "power2.inOut",
+      onComplete: () => {  // Fungsi yang dijalankan setelah animasi #navbar selesai
+        gsap.fromTo("#heading", { 
+          x: "-100", 
+          opacity: 0 
+        }, { 
+          x: "0", 
+          opacity: 1, 
+          duration: 1.5, 
+          ease: "power2.out" 
+        });
+      }
+    });
+  }, []);
+
+  // useGSAP(() => {
+  //   gsap.from("#heading", {
+  //     x: "-100%",
+  //     opacity: 0,
+  //     duration: 1,
+  //     ease: "power2.inOut",
+  //   });
+  // }, []);
+
   // Toggle Menu Handler
   const toggleMenu = () => {
     setIsOpen((prevState) => !prevState);
@@ -39,7 +68,7 @@ const Home = () => {
 
   return (
     <section className="bg-primary text-white h-screen">
-      <Header toggleMenu={toggleMenu} isOpen={isOpen} />
+      <Header toggleMenu={toggleMenu} isOpen={isOpen} id="navbar" />
       {/* BG Image */}
       {/* <div className="absolute inset-0 bg-hero-banner bg-contain lg:bg-cover bg-no-repeat bg-center opacity-30 grayscale"></div> */}
       {/* BG Video */}
@@ -62,7 +91,10 @@ const Home = () => {
             <p>me</p>
           </div>
           <div>
-            <h1 className="uppercase text-[2.75rem] md:text-[5.45rem] lg:text-[7rem] xl:text-[10rem] 2xl:text-[11.875rem] font-bold text-center">
+            <h1
+              id="heading"
+              className="uppercase text-[2.75rem] md:text-[5.45rem] lg:text-[7rem] xl:text-[10rem] 2xl:text-[11.875rem] font-bold text-center opacity-0"
+            >
               dreamcatcher
             </h1>
           </div>
