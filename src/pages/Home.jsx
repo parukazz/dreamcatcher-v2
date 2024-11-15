@@ -4,11 +4,33 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { listMenu } from "../constant";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
+gsap.registerPlugin(useGSAP);
 
 const Home = () => {
   // Hook Menu
   const [isOpen, setIsOpen] = useState(false);
+
+  // GSAP
+  useEffect(() => {
+    console.log("isOpen:", isOpen);
+    if (isOpen) {
+      gsap.from("#menuBox", {
+        y: "-100%",
+        duration: 1,
+        ease: "power2.out",
+      });
+    } else {
+      gsap.to("#menuBox", {
+        y: "-100%",
+        duration: 1,
+        ease: "power2.out",
+      });
+    }
+  }, [isOpen]);
 
   // Toggle Menu Handler
   const toggleMenu = () => {
@@ -72,7 +94,7 @@ const Home = () => {
 
       {/* List Menu */}
       {isOpen && (
-        <div className="absolute inset-0 bg-primary">
+        <div id="menuBox" className="absolute inset-0 bg-primary">
           <ul className="w-full h-full uppercase font-bold text-3xl flex flex-col justify-center items-center gap-1">
             {listMenu.map((item) => (
               <li key={item.id} className="group ">
