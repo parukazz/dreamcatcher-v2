@@ -16,15 +16,8 @@ const Home = () => {
 
   // GSAP
   useEffect(() => {
-    console.log("isOpen:", isOpen);
     if (isOpen) {
       gsap.from("#menuBox", {
-        y: "-100%",
-        duration: 1,
-        ease: "power2.out",
-      });
-    } else {
-      gsap.to("#menuBox", {
         y: "-100%",
         duration: 1,
         ease: "power2.out",
@@ -106,12 +99,12 @@ const Home = () => {
             <div>
               <a
                 href="#"
-                className="flex items-center uppercase text-base md:text-2xl xl:text-4xl font-medium tracking-tight gap-2.5"
+                className="flex items-center uppercase text-base md:text-2xl xl:text-4xl font-medium tracking-tight gap-2.5 group"
               >
                 <img
                   src={playIcon}
                   alt="icon play"
-                  className="w-10 md:w-16 xl:w-20"
+                  className="w-10 md:w-16 xl:w-20 group-hover:scale-105 group-hover:transition"
                 />
                 justice
               </a>
