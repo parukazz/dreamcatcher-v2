@@ -1,8 +1,12 @@
+import Navbar from "../components/Navbar";
+
 const About = () => {
   return (
-    <div>
-      <h1>About</h1>
-    </div>
+    <main>
+      <div>
+        <Navbar theme={"bg-white text-primary"} />
+      </div>
+    </main>
   );
 };
 
