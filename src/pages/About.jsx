@@ -4,8 +4,6 @@ import mainPhoto from "../assets/img/profile-group.webp";
 import FooterAllPage from "../components/FooterAllPage";
 
 const About = () => {
-  console.log(socialMedia);
-
   return (
     <main className="bg-white text-primary">
       <Navbar theme={"bg-white text-black"} />
