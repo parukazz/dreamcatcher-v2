@@ -1,7 +1,6 @@
 import Navbar from "../components/Navbar";
 import { members, socialMedia, streamPlatform } from "../constant";
 import mainPhoto from "../assets/img/profile-group.webp";
-import { jiu } from "../assets/img/members";
 import FooterAllPage from "../components/FooterAllPage";
 
 const About = () => {
