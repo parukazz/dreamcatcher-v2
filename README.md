@@ -6,5 +6,6 @@ Here's the tech stack I used:
 - React + Vite
 - TailwindCSS
 - Google Fonts
+- React icons
 
 I hope you'll enjoy this website when it's launched! It's not published yet, so stay tuned! ✌️✌️
