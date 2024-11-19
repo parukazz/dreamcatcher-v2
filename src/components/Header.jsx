@@ -1,4 +1,4 @@
-const Header = ({ toggleMenu, isOpen, id, type }) => {
+const Header = ({ toggleMenu, isOpen, id }) => {
   return (
     <header id={id} className={`container py-7 relative z-50`}>
       <nav className="flex justify-between">
