@@ -2,7 +2,9 @@
 
 const FooterAllPage = () => {
   return (
-    <div>FooterAllPage</div>
+    <div>
+      
+    </div>
   )
 }
 
