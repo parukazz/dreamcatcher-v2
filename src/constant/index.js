@@ -20,13 +20,48 @@ import {
 
 // Members name
 export const members = [
-  { id: 1, name: "JiU", born: "May 17th, 1994", photo: jiu },
-  { id: 2, name: "SuA", born: "August 10th, 1994", photo: sua },
-  { id: 3, name: "Siyeon", born: "October 1st, 1995", photo: siyeon },
-  { id: 4, name: "Handong", born: "March 26th, 1996", photo: handong },
-  { id: 5, name: "Yoohyeon", born: "January 7th, 1997", photo: yoohyeon },
-  { id: 6, name: "Dami", born: "March 7th, 1997", photo: dami },
-  { id: 7, name: "Gahyun", born: "February 3rd, 1999", photo: gahyun },
+  { 
+    id: 1, 
+    name: "JiU", 
+    born: "May 17th, 1994", 
+    photo: jiu 
+  },
+  { 
+    id: 2, 
+    name: "SuA", 
+    born: "August 10th, 1994", 
+    photo: sua 
+  },
+  { 
+    id: 3, 
+    name: "Siyeon", 
+    born: "October 1st, 1995", 
+    photo: siyeon 
+  },
+  { 
+    id: 4, 
+    name: "Handong", 
+    born: "March 26th, 1996", 
+    photo: handong 
+  },
+  { 
+    id: 5, 
+    name: "Yoohyeon", 
+    born: "January 7th, 1997", 
+    photo: yoohyeon 
+  },
+  { 
+    id: 6, 
+    name: "Dami", 
+    born: "March 7th, 1997", 
+    photo: dami 
+  },
+  { 
+    id: 7, 
+    name: "Gahyun", 
+    born: "February 3rd, 1999", 
+    photo: gahyun 
+  },
 ];
 
 import {
