@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 const Home = () => {
   return (
     <main className="bg-primary text-white h-screen">
-      <Navbar />
+      <Navbar theme="text-white" />
       {/* BG Image */}
       {/* <div className="absolute inset-0 bg-hero-banner bg-contain lg:bg-cover bg-no-repeat bg-center opacity-30 grayscale"></div> */}
       {/* BG Video */}
