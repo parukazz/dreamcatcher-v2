@@ -57,7 +57,7 @@ const About = () => {
         </div>
 
         {/* Profile Description */}
-        <div className="mt-6 text-xs leading-6 flex flex-col gap-5">
+        <div className="mt-10 text-xs leading-6 flex flex-col gap-5">
           <p>
             Dreamcatcher a girl group under Dreamcatcher Company, debuted on
             January 13, 2017 with the single "Nightmare". A "Dream Catcher" is
@@ -82,7 +82,7 @@ const About = () => {
       </div>
 
       {/* Members Profile */}
-      <div className="container py-20 bg-primary text-white">
+      <div className="container py-20 bg-primary text-white w-full">
         <div>
           <h2 className="font-semibold text-3xl leading-8 tracking-tight">
             Members
