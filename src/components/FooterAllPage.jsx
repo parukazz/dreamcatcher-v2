@@ -3,19 +3,19 @@ import { listMenu, socialMedia } from "../constant";
 const FooterAllPage = () => {
   return (
     <div className="bg-white text-primary container">
-      <div className="py-20 uppercase flex flex-col items-center gap-9">
+      <div className="py-20 uppercase flex flex-col items-center gap-9 md:gap-12">
         <div>
-          <h3 className="font-black text-[2rem] leading-8 tracking-tighter">
+          <h3 className="font-black text-[2rem] md:text-[3.5rem] leading-8 tracking-tighter">
             dreamcatcher
           </h3>
         </div>
         <div className="w-full">
-          <ul className="flex flex-wrap justify-between gap-y-6">
+          <ul className="flex flex-wrap justify-between md:justify-center md:gap-x-10 gap-y-6">
             {listMenu.map((item) => (
               <li key={item.id}>
                 <a
                   href={item.link}
-                  className="font-semibold text-[10px] leading-4 text-silver hover:text-accent primary-transition"
+                  className="font-semibold text-[10px] md:text-xs leading-4 text-silver hover:text-accent primary-transition"
                 >
                   {item.label}
                 </a>
@@ -24,7 +24,7 @@ const FooterAllPage = () => {
           </ul>
         </div>
         <div className="w-full">
-          <ul className="flex justify-between">
+          <ul className="flex justify-between md:justify-center md:gap-x-10">
             {socialMedia.map((item) => (
               <li key={item.id}>
                 <a href="#">
