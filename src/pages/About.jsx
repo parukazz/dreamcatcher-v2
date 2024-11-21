@@ -10,14 +10,14 @@ const About = () => {
 
       {/* Group Profile */}
       <div className="container py-20">
-        <div className="text-center mb-12">
-          <h1 className="uppercase font-extrabold text-[40px] md:text-[5.25rem] tracking-tight mb-6">
+        <div className="text-center mb-12 lg:mb-24">
+          <h1 className="uppercase font-extrabold text-[40px] md:text-[5.25rem] lg:text-[6.5rem] xl:text-[9rem] tracking-tight mb-6">
             dreamcatcher
           </h1>
-          <div className="flex flex-wrap gap-x-9 gap-y-7 justify-center">
+          <div className="flex flex-wrap gap-x-9 xl:gap-x-14 gap-y-7 justify-center">
             {members.map((member) => (
               <div key={member.id}>
-                <p className="uppercase font-bold text-sm md:text-base tracking-tight">
+                <p className="uppercase font-bold text-sm md:text-base lg:text-lg xl:text-2xl tracking-tight">
                   {member.name}
                 </p>
               </div>
@@ -28,28 +28,28 @@ const About = () => {
           <img src={mainPhoto} alt="Group Photo" className="w-full" />
         </div>
 
-        <div className="md:px-16">
+        <div className="md:px-16 lg:px-36">
           {/* social media */}
           <div className="flex flex-col md:flex-row gap-6 mt-12">
-            <div className="flex gap-8 justify-center">
-              <p className="font-semibold text-xs">Social Media</p>
-              <ul className="flex gap-6 border-primary border-r-[1px] pr-5">
+            <div className="flex gap-8 justify-center items-center">
+              <p className="font-semibold text-xs xl:text-sm">Social Media</p>
+              <ul className="flex gap-6 xl:gap-7 border-primary border-r-[1px] pr-5">
                 {socialMedia.map((item) => (
                   <li key={item.id}>
-                    <a href="#">
-                      <item.label size={14} />
+                    <a href="#" className="text-sm xl:text-xl">
+                      <item.label />
                     </a>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="flex gap-8 justify-center">
-              <p className="font-semibold text-xs">Streaming</p>
-              <ul className="flex gap-6">
+              <p className="font-semibold text-xs xl:text-sm">Streaming</p>
+              <ul className="flex gap-6 xl:gap-7">
                 {streamPlatform.map((item) => (
                   <li key={item.id}>
-                    <a href="#">
-                      <item.label size={14} />
+                    <a href="#" className="text-sm xl:text-xl">
+                      <item.label />
                     </a>
                   </li>
                 ))}
@@ -58,7 +58,7 @@ const About = () => {
           </div>
 
           {/* Profile Description */}
-          <div className="mt-10 text-xs md:text-sm leading-6 md:leading-7 flex flex-col gap-5">
+          <div className="mt-10 text-xs md:text-sm lg:text-base leading-6 md:leading-7 lg:leading-8 flex flex-col gap-5">
             <p>
               Dreamcatcher a girl group under Dreamcatcher Company, debuted on
               January 13, 2017 with the single "Nightmare". A "Dream Catcher" is
@@ -87,26 +87,26 @@ const About = () => {
       <div className="py-20 bg-primary text-white">
         <div className="container">
           <div>
-            <h2 className="font-semibold md:font-bold text-3xl md:text-4xl leading-8 tracking-tight">
+            <h2 className="font-semibold md:font-bold text-3xl md:text-4xl lg:text-[3.5rem] leading-8 tracking-tight">
               Members
             </h2>
           </div>
-          <div className="py-7 md:py-12">
+          <div className="py-7 md:py-12 xl:py-14">
             <div className="grid grid-rows-4 md:grid-rows-2 grid-cols-2 md:grid-cols-4 gap-x-5 gap-y-14">
               {members.map((item) => (
                 <div key={item.id}>
-                  <div className="h-[266px]">
+                  <div className="h-[266px] lg:h-[338px] xl:h-[480px] bg-green-300">
                     <img
-                      className="h-full object-cover"
+                      className="h-full w-full object-cover"
                       src={item.photo}
                       alt="member photo"
                     />
                   </div>
-                  <div className="mt-10 flex flex-col gap-3">
-                    <h2 className="font-bold text-3xl leading-8 tracking-tight">
+                  <div className="mt-10 flex flex-col gap-3 lg:gap-7">
+                    <h2 className="font-bold text-3xl xl:text-4xl leading-8 tracking-tight">
                       {item.name}
                     </h2>
-                    <p className="font-medium text-[10px]">
+                    <p className="font-medium text-[10px] lg:text-xs xl:text-sm">
                       Date of Birth: {item.born}
                     </p>
                   </div>
